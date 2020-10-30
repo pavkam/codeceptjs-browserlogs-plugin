@@ -1,0 +1,33 @@
+{
+    "name": "codeceptjs-browserlogs-plugin",
+    "version": "0.0.9",
+    "description": "Plugin to export last browser logs for failed tests.",
+    "main": "index.js",
+    "scripts": {
+        "publish": "npm publish --access public"
+    },
+    "peerDependencies": {
+        "codeceptjs": "^2.6.8"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pavkam/codeceptjs-browserlogs-plugin.git"
+    },
+    "author": "Alexandru Ciobanu <alex+git@ciobanu.org>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/pavkam/codeceptjs-browserlogs-plugin/issues"
+    },
+    "keywords": [
+        "codeceptjs",
+        "codecept",
+        "console logs",
+		"log",
+        "e2e",
+        "playwright"
+    ],
+    "homepage": "https://github.com/pavkam/codeceptjs-browserlogs-plugin#readme",
+    "devDependencies": {
+        "codeceptjs": "^2.6.8"
+    }
+}
