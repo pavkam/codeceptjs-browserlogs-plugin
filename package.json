@@ -1,6 +1,6 @@
 {
     "name": "codeceptjs-browserlogs-plugin",
-    "version": "0.0.9",
+    "version": "1.0.0",
     "description": "Plugin to export last browser logs for failed tests.",
     "main": "index.js",
     "scripts": {
@@ -22,7 +22,7 @@
         "codeceptjs",
         "codecept",
         "console logs",
-		"log",
+        "log",
         "e2e",
         "playwright"
     ],
