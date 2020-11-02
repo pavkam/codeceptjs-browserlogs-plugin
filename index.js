@@ -3,6 +3,8 @@
 
     Copyright (c) 2020 Alexandru Ciobanu (alex+git@ciobanu.org)
 
+    Parts of the code based on existing plugin: https://github.com/codeceptjs/CodeceptJS/blob/3.x/lib/plugin/screenshotOnFail.js 
+
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
     in the Software without restriction, including without limitation the rights
