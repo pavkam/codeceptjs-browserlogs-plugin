@@ -151,7 +151,9 @@ module.exports = function (config) {
             fs.writeFileSync(filePath, text);
           }
 
-          test.artifacts.browserLogs = filePath;
+          if ('artifacts' in test) {
+            test.artifacts.browserLogs = filePath;
+          }
 
           if (
             container.mocha().options.reporterOptions['mocha-junit-reporter'] &&
@@ -172,6 +174,28 @@ module.exports = function (config) {
               fs.readFileSync(filePath),
               'text/json'
             );
+          }
+             
+          if ('mochawesome' in container.mocha().options.reporterOptions) {
+            const addContext = require('mochawesome/addContext');
+            let contents = logs.map(function(log) {
+              
+              let location = "URL: " + log._location.url;
+              if (log._location.lineNumber) {
+                  location.append(" - " + log._location.lineNumber)
+              }
+              if (log._location.columnNumber) {
+                location.append(":" + log._location.columnNumber)
+              }
+              return [ 
+                log._type + ": " + log._text, 
+                location
+              ];
+            })
+            addContext(test.ctx, {
+              title: 'Browser Logs',
+              value: contents
+            });
           }
         } catch (err) {
           output.plugin(err);
