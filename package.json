@@ -7,7 +7,7 @@
         "publish": "npm publish --access public"
     },
     "peerDependencies": {
-        "codeceptjs": "^2.6.8"
+        "codeceptjs": "^2.6.8 || ^3.0.0"
     },
     "repository": {
         "type": "git",
