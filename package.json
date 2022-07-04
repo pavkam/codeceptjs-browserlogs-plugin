@@ -4,8 +4,8 @@
     "description": "Plugin to export last browser logs for failed tests.",
     "main": "index.js",
     "scripts": {
-        "publish": "npm publish --access public"
-        "ci": "echo Ignored"
+        "publish": "npm publish --access public",
+        "ci": "echo Ignored",
         "test": "echo Ignored"
     },
     "peerDependencies": {
