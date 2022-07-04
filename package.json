@@ -5,6 +5,8 @@
     "main": "index.js",
     "scripts": {
         "publish": "npm publish --access public"
+        "ci": "echo Ignored"
+        "test": "echo Ignored"
     },
     "peerDependencies": {
         "codeceptjs": "^2.6.8 || ^3.0.0"
