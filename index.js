@@ -180,17 +180,38 @@ module.exports = function (config) {
             const addContext = require('mochawesome/addContext');
             let contents = logs.map(function(log) {
               
-              let location = "URL: " + log._location.url;
-              if (log._location.lineNumber) {
-                  location.append(" - " + log._location.lineNumber)
-              }
-              if (log._location.columnNumber) {
-                location.append(":" + log._location.columnNumber)
-              }
-              return [ 
-                log._type + ": " + log._text, 
-                location
-              ];
+              if ('_location' in log) {
+                let location = "URL: " + log._location.url;
+                if (log._location.lineNumber) {
+                    location.append(" - " + log._location.lineNumber)
+                }
+                if (log._location.columnNumber) {
+                  location.append(":" + log._location.columnNumber)
+                }
+                return [ 
+                  log._type + ": " + log._text, 
+                  location
+                ];
+              
+              } 
+              
+              /* Special case for Puppeteer message */
+              if (typeof log == "object" && log.constructor.name == "ConsoleMessage") {
+                let location = "URL: " + log.location().url;
+                console.log(typeof location);
+                if (log.location().lineNumber) {
+                    location = location.concat(" - " + log.location().lineNumber)
+                }
+                if (log.location().columnNumber) {
+                  location = location.concat(":" + log.location().columnNumber)
+                }
+                return [
+                  log.type() + ": " + util.format('%O', log.text()),
+                  location
+                ]
+              } 
+              
+              return [ util.format('%O', log) ];
             })
             addContext(test.ctx, {
               title: 'Browser Logs',
