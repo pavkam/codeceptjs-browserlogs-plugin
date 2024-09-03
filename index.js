@@ -198,7 +198,7 @@ module.exports = function (config) {
               /* Special case for Puppeteer message */
               if (typeof log == "object" && log.constructor.name == "ConsoleMessage") {
                 let location = "URL: " + log.location().url;
-                console.log(typeof location);
+
                 if (log.location().lineNumber) {
                     location = location.concat(" - " + log.location().lineNumber)
                 }
